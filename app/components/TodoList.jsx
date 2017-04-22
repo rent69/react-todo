@@ -1,13 +1,23 @@
 var React = require('react');
+var Todo = require('Todo');
 
-var TodoApp = React.createClass({
+var TodoList = React.createClass({
   render: function () {
+    var {todos} = this.props;
+    var renderTodos = () => {
+      return todos.map((todo) => {
+        return (
+          <Todo key={todo.id} {...todo} />
+        );
+      });
+
+    };
     return (
       <div>
-        TodoApp.jsx
+      {renderTodos()}
       </div>
     )
   }
 });
 
-module.exports = TodoApp;
+module.exports = TodoList;
