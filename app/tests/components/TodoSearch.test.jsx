@@ -1,8 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var expect = require('expect');
-var $ = require('jQuery');
 var TestUtils = require('react-addons-test-utils');
+var expect = require('expect');
+var $ = require('jquery');
 
 var TodoSearch = require('TodoSearch');
 
@@ -28,7 +28,7 @@ describe('TodoSearch', () => {
 
     todoSearch.refs.showCompleted.checked = true;
     TestUtils.Simulate.change(todoSearch.refs.showCompleted);
-    
-      expect(spy).toHaveBeenCalledWith(true, '');
+
+    expect(spy).toHaveBeenCalledWith(true, '');
   });
 });
