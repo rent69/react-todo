@@ -22,24 +22,85 @@ var firebaseRef = firebase.database().ref();
       name: 'Rent',
       age: 53
     }
-  }).then(() => {
-    console.log('Set worked!')
-  }, (e) => {
-    console.log('Set failed')
-  })
+  });
 
-  //var firebaseRef = firebase.database().ref();
-  //  firebaseRef.set({
-  //    appName: 'Todo Application',
-  //  });
+var todosRef = firebaseRef.child('todos');
 
-    firebaseRef.child('app').set(
-      {
-      name: 'Todo Application'
-    })
+todosRef.on('child_added', (snapshot) => {
+  console.log('New todo added', snapshot.key, snapshot.val());
+});
 
-    firebaseRef.child('user').set(
-      {
-      name: 'Lex',
-      age: 54
-    })
+todosRef.push({
+  text: 'Drain the swamp',
+ });
+
+ todosRef.push({
+ text: 'Fill the pool'
+ });
+
+
+
+
+
+// var notesRef = firebaseRef.child('notes');
+//
+// notesRef.on('child_added', (snapshot) => {
+//   console.log('child_added', snapshot.key, snapshot.val());
+// });
+//
+// notesRef.on('child_changed', (snapshot) => {
+//   console.log('child_changed', snapshot.key, snapshot.val());
+// });
+//
+// notesRef.on('child_removed', (snapshot) => {
+//   console.log('child_removed', snapshot.key, snapshot.val());
+// });
+//
+// var newNoteRef = notesRef.push({
+//   text: 'Walk the Dog!'
+// });
+// console.log('Note id', newNoteRef.key);
+//
+//   // firebaseRef.child('app').update({
+//   //   name: 'Todo Application'
+//   // });
+//   // firebaseRef.child('user').update({
+//   //   name: 'Lex'
+//   // });
+//
+//   // firebaseRef.child('app/name').remove();
+//
+// // firebaseRef.child('app').update({
+// //   version: '2.0',
+// //   name: null
+// // });
+// //
+// // firebaseRef.update({
+// //   isRunning: null
+// // });
+// //
+// // firebaseRef.child('user/age').remove();
+//
+// // firebaseRef.child('app').once('value').then((snapshot) => {
+// //   console.log('Got entire database', snapshot.key, snapshot.val());
+// // }, (e) => {
+// //   console.log('Unable to fetch value', e);
+// // });
+//
+// // var logData = (snapshot) => {
+// // console.log('Got value', snapshot.val());
+// // }
+// // firebaseRef.on('value', logData);
+// // firebaseRef.off(logData);
+// // );
+// //
+// // // firebaseRef.off();
+// //
+// // firebaseRef.update({isRunning: false})
+//
+// firebaseRef.child('user').on('value', (snapshot) => {
+//   console.log('User ref changed', snapshot.val());
+// });
+//
+// firebaseRef.child('user').update({name: 'Mike'});
+// firebaseRef.child('app').update({name: 'Something Else!'});
