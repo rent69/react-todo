@@ -2,12 +2,12 @@ import firebase from 'firebase';
 
 // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyA4v9cug9bPWzy2-HXfL1SLcH-OLJn2irU",
-    authDomain: "rs-todo-app.firebaseapp.com",
-    databaseURL: "https://rs-todo-app.firebaseio.com",
-    projectId: "rs-todo-app",
-    storageBucket: "rs-todo-app.appspot.com",
-    messagingSenderId: "617347898910"
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    databaseURL: process.env.DATABASE_URL,
+    projectId: process.env.projectId,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
   };
   firebase.initializeApp(config);
 
