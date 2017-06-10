@@ -10,11 +10,12 @@ try {
       storageBucket: process.env.STORAGE_BUCKET,
       messagingSenderId: process.env.MESSAGING_SENDER_ID,
     };
-
+ 
     firebase.initializeApp(config);
 } catch (e) {
 
 }
 
+export var githubProvider = new firebase.auth.GithubAuthProvider();
 export var firebaseRef =  firebase.database().ref();
 export default firebase;
